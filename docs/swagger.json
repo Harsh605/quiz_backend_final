@@ -1,0 +1,1767 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "QUIZ",
+    "description": "QUIZ"
+  },
+  "basePath": "/",
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+
+    "/api/log-in": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Log in system",
+        "description": "Log in system",
+        "operationId": "log-in",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/HeaderVersion"
+          },
+          {
+            "$ref": "#/parameters/HeaderLanguage"
+          },
+          {
+            "$ref": "#/parameters/HeaderPlatform"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/login"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Login",
+            "schema": {
+              "$ref": "#/definitions/responsesOk"
+            }
+          },
+          "500": {
+            "description": "Unexpected error.",
+            "schema": {
+              "$ref": "#/definitions/responsesError"
+            }
+          }
+        }
+      }
+    },
+
+    "/api/signup": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Signup",
+        "description": "Sign Up",
+        "operationId": "signup",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/HeaderVersion"
+          },
+          {
+            "$ref": "#/parameters/HeaderLanguage"
+          },
+          {
+            "$ref": "#/parameters/HeaderPlatform"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/user_signup"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Signup",
+            "schema": {
+              "$ref": "#/definitions/responsesOk"
+            }
+          },
+          "500": {
+            "description": "Unexpected error.",
+            "schema": {
+              "$ref": "#/definitions/responsesError"
+            }
+          }
+        }
+      }
+    },
+
+    "/api/verify-otp": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Verify Otp",
+        "description": "Verify otp",
+        "operationId": "verify-otp",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/HeaderVersion"
+          },
+          {
+            "$ref": "#/parameters/HeaderLanguage"
+          },
+          {
+            "$ref": "#/parameters/HeaderPlatform"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/verify_otp"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User profile in system",
+            "schema": {
+              "$ref": "#/definitions/responsesOk"
+            }
+          },
+          "500": {
+            "description": "Unexpected error.",
+            "schema": {
+              "$ref": "#/definitions/responsesError"
+            }
+          }
+        }
+      }
+    },
+
+    "/api/resend-otp": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Resend Otp",
+        "description": "Resend otp",
+        "operationId": "resend-otp",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/HeaderVersion"
+          },
+          {
+            "$ref": "#/parameters/HeaderLanguage"
+          },
+          {
+            "$ref": "#/parameters/HeaderPlatform"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/resend_otp"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resend otp in system",
+            "schema": {
+              "$ref": "#/definitions/responsesOk"
+            }
+          },
+          "500": {
+            "description": "Unexpected error.",
+            "schema": {
+              "$ref": "#/definitions/responsesError"
+            }
+          }
+        }
+      }
+    },
+
+    "/api/forgot-password": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Forgot Password",
+        "description": "Forgot Password",
+        "operationId": "forgot-password",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/HeaderVersion"
+          },
+          {
+            "$ref": "#/parameters/HeaderLanguage"
+          },
+          {
+            "$ref": "#/parameters/HeaderPlatform"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/forgot_password"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Forgot password in system",
+            "schema": {
+              "$ref": "#/definitions/responsesOk"
+            }
+          },
+          "500": {
+            "description": "Unexpected error.",
+            "schema": {
+              "$ref": "#/definitions/responsesError"
+            }
+          }
+        }
+      }
+    },
+
+    "/api/reset-password": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Reset Password or Create a new password",
+        "description": "Reset Password or Create a new password",
+        "operationId": "createPassword",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/HeaderVersion"
+          },
+          {
+            "$ref": "#/parameters/HeaderLanguage"
+          },
+          {
+            "$ref": "#/parameters/HeaderPlatform"
+          },
+          {
+            "$ref": "#/parameters/HeaderAuth"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/reset_password"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User profile in system",
+            "schema": {
+              "$ref": "#/definitions/responsesOk"
+            }
+          },
+          "500": {
+            "description": "Unexpected error.",
+            "schema": {
+              "$ref": "#/definitions/responsesError"
+            }
+          }
+        }
+      }
+    },
+
+    "/api/getProfile": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "get profile of user",
+        "description": "get profile of user",
+        "operationId": "get profile",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/HeaderVersion"
+          },
+          {
+            "$ref": "#/parameters/HeaderLanguage"
+          },
+          {
+            "$ref": "#/parameters/HeaderPlatform"
+          },
+          {
+            "$ref": "#/parameters/HeaderAuth"
+          }
+        
+        ],
+        "responses": {
+          "200": {
+            "description": "User profile in system",
+            "schema": {
+              "$ref": "#/definitions/responsesOk"
+            }
+          },
+          "500": {
+            "description": "Unexpected error.",
+            "schema": {
+              "$ref": "#/definitions/responsesError"
+            }
+          }
+        }
+      }
+    },
+
+
+    "/api/home-page": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "get Home page",
+        "description": "get Home page",
+        "operationId": "homepage",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/HeaderVersion"
+          },
+          {
+            "$ref": "#/parameters/HeaderLanguage"
+          },
+          {
+            "$ref": "#/parameters/HeaderPlatform"
+          },
+          {
+            "$ref": "#/parameters/HeaderAuth"
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "businessDate",
+            "type": "number"
+          }
+        
+        ],
+        "responses": {
+          "200": {
+            "description": "Get User Home Page",
+            "schema": {
+              "$ref": "#/definitions/responsesOk"
+            }
+          },
+          "500": {
+            "description": "Unexpected error.",
+            "schema": {
+              "$ref": "#/definitions/responsesError"
+            }
+          }
+        }
+      }
+    },
+
+    "/api/my-exam": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "My exam page",
+        "description": "My exam page",
+        "operationId": "my-exam",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/HeaderVersion"
+          },
+          {
+            "$ref": "#/parameters/HeaderLanguage"
+          },
+          {
+            "$ref": "#/parameters/HeaderPlatform"
+          },
+          {
+            "$ref": "#/parameters/HeaderAuth"
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "businessDate",
+            "type": "number"
+          },
+          {
+            "in": "query",
+            "name": "type",
+            "type": "string"
+          }
+        
+        ],
+        "responses": {
+          "200": {
+            "description": "My exam Page",
+            "schema": {
+              "$ref": "#/definitions/responsesOk"
+            }
+          },
+          "500": {
+            "description": "Unexpected error.",
+            "schema": {
+              "$ref": "#/definitions/responsesError"
+            }
+          }
+        }
+      }
+    },
+
+    "/api/winners-list": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Get winner page",
+        "description": "Get winner page",
+        "operationId": "winners-list",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/HeaderVersion"
+          },
+          {
+            "$ref": "#/parameters/HeaderLanguage"
+          },
+          {
+            "$ref": "#/parameters/HeaderPlatform"
+          },
+          {
+            "$ref": "#/parameters/HeaderAuth"
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "businessDate",
+            "type": "number"
+          }
+        
+        ],
+        "responses": {
+          "200": {
+            "description": "Winner Page",
+            "schema": {
+              "$ref": "#/definitions/responsesOk"
+            }
+          },
+          "500": {
+            "description": "Unexpected error.",
+            "schema": {
+              "$ref": "#/definitions/responsesError"
+            }
+          }
+        }
+      }
+    },
+
+
+    "/api/join-page": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Join Game page",
+        "description": "Join Game page",
+        "operationId": "join-page",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/HeaderVersion"
+          },
+          {
+            "$ref": "#/parameters/HeaderLanguage"
+          },
+          {
+            "$ref": "#/parameters/HeaderPlatform"
+          },
+          {
+            "$ref": "#/parameters/HeaderAuth"
+          },
+          {
+            "in": "query",
+            "name": "_id",
+            "type": "ObjectId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get User Home Page",
+            "schema": {
+              "$ref": "#/definitions/responsesOk"
+            }
+          },
+          "500": {
+            "description": "Unexpected error.",
+            "schema": {
+              "$ref": "#/definitions/responsesError"
+            }
+          }
+        }
+      }
+    },
+
+    "/api/quiz-leadership": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Quiz leadership page",
+        "description": "Quiz leadership page",
+        "operationId": "quiz-leadership",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/HeaderVersion"
+          },
+          {
+            "$ref": "#/parameters/HeaderLanguage"
+          },
+          {
+            "$ref": "#/parameters/HeaderPlatform"
+          },
+          {
+            "$ref": "#/parameters/HeaderAuth"
+          },
+          {
+            "in": "query",
+            "name": "gameId",
+            "type": "ObjectId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Quiz leadership page",
+            "schema": {
+              "$ref": "#/definitions/responsesOk"
+            }
+          },
+          "500": {
+            "description": "Unexpected error.",
+            "schema": {
+              "$ref": "#/definitions/responsesError"
+            }
+          }
+        }
+      }
+    },
+
+    "/api/quiz-result": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Quiz result page",
+        "description": "Quiz result page",
+        "operationId": "quiz-result",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/HeaderVersion"
+          },
+          {
+            "$ref": "#/parameters/HeaderLanguage"
+          },
+          {
+            "$ref": "#/parameters/HeaderPlatform"
+          },
+          {
+            "$ref": "#/parameters/HeaderAuth"
+          },
+          {
+            "in": "query",
+            "name": "gameId",
+            "type": "ObjectId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Quiz result page",
+            "schema": {
+              "$ref": "#/definitions/responsesOk"
+            }
+          },
+          "500": {
+            "description": "Unexpected error.",
+            "schema": {
+              "$ref": "#/definitions/responsesError"
+            }
+          }
+        }
+      }
+    },
+
+    "/api/app-setting": {
+      "post": {
+        "tags": [
+          "ZZZ"
+        ],
+        "summary": "Update App setting",
+        "description": "Update App setting",
+        "operationId": "app-setting",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/HeaderVersion"
+          },
+          {
+            "$ref": "#/parameters/HeaderLanguage"
+          },
+          {
+            "$ref": "#/parameters/HeaderPlatform"
+          },
+          {
+            "$ref": "#/parameters/HeaderAuth"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/app-setting"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "App Setting",
+            "schema": {
+              "$ref": "#/definitions/responsesOk"
+            }
+          },
+          "500": {
+            "description": "Unexpected error.",
+            "schema": {
+              "$ref": "#/definitions/responsesError"
+            }
+          }
+        }
+      }
+    },
+
+    "/users/updateProfile": {
+      "post": {
+        "tags": [
+          "ZZZ"
+        ],
+        "summary": "updateProfile",
+        "description": "updateProfile",
+        "operationId": "updateProfile",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/HeaderVersion"
+          },
+          {
+            "$ref": "#/parameters/HeaderLanguage"
+          },
+          {
+            "$ref": "#/parameters/HeaderPlatform"
+          },
+          {
+            "$ref": "#/parameters/HeaderAuth"
+          },
+          {
+            "in": "formData",
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "avatar",
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "$ref": "#/definitions/responsesOk"
+            }
+          },
+          "500": {
+            "description": "Unexpected error.",
+            "schema": {
+              "$ref": "#/definitions/responsesError"
+            }
+          }
+        }
+      }
+    },
+
+    "/api/addWallet": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "addWallet",
+        "description": "addWallet",
+        "operationId": "addWallet",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/HeaderVersion"
+          },
+          {
+            "$ref": "#/parameters/HeaderLanguage"
+          },
+          {
+            "$ref": "#/parameters/HeaderPlatform"
+          },
+          {
+            "$ref": "#/parameters/HeaderAuth"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/add_wallet"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "$ref": "#/definitions/responsesOk"
+            }
+          },
+          "500": {
+            "description": "Unexpected error.",
+            "schema": {
+              "$ref": "#/definitions/responsesError"
+            }
+          }
+        }
+      }
+    },
+    "/api/delete-notification": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Delete Notification",
+        "description": "Delete Notification",
+        "operationId": "delete-notification",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/HeaderVersion"
+          },
+          {
+            "$ref": "#/parameters/HeaderLanguage"
+          },
+          {
+            "$ref": "#/parameters/HeaderPlatform"
+          },
+          {
+            "$ref": "#/parameters/HeaderAuth"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/delete_notification"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "$ref": "#/definitions/responsesOk"
+            }
+          },
+          "500": {
+            "description": "Unexpected error.",
+            "schema": {
+              "$ref": "#/definitions/responsesError"
+            }
+          }
+        }
+      }
+    },
+
+    "/api/update-game": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Update game language",
+        "description": "Update game language",
+        "operationId": "update-game",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/HeaderVersion"
+          },
+          {
+            "$ref": "#/parameters/HeaderLanguage"
+          },
+          {
+            "$ref": "#/parameters/HeaderPlatform"
+          },
+          {
+            "$ref": "#/parameters/HeaderAuth"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/update_game"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "$ref": "#/definitions/responsesOk"
+            }
+          },
+          "500": {
+            "description": "Unexpected error.",
+            "schema": {
+              "$ref": "#/definitions/responsesError"
+            }
+          }
+        }
+      }
+    },
+
+    "/api/addGame": {
+      "post": {
+        "tags": [
+          "ZZZ"
+        ],
+        "summary": "addGame",
+        "description": "addGame",
+        "operationId": "addGame",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/HeaderVersion"
+          },
+          {
+            "$ref": "#/parameters/HeaderLanguage"
+          },
+          {
+            "$ref": "#/parameters/HeaderPlatform"
+          },
+          {
+            "$ref": "#/parameters/HeaderAuth"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/add_game"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "$ref": "#/definitions/responsesOk"
+            }
+          },
+          "500": {
+            "description": "Unexpected error.",
+            "schema": {
+              "$ref": "#/definitions/responsesError"
+            }
+          }
+        }
+      }
+    },
+
+    "/api/getWallet": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Wallet Details",
+        "description": "Wallet Details",
+        "operationId": "getWallet",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/HeaderVersion"
+          },
+          {
+            "$ref": "#/parameters/HeaderLanguage"
+          },
+          {
+            "$ref": "#/parameters/HeaderPlatform"
+          },
+          {
+            "$ref": "#/parameters/HeaderAuth"
+          }
+        
+        ],
+        "responses": {
+          "200": {
+            "description": "Wallet Details",
+            "schema": {
+              "$ref": "#/definitions/responsesOk"
+            }
+          },
+          "500": {
+            "description": "Unexpected error.",
+            "schema": {
+              "$ref": "#/definitions/responsesError"
+            }
+          }
+        }
+      }
+    },
+    "/api/gameList": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Bank Details",
+        "description": "Bank Details",
+        "operationId": "Bank Details",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/HeaderVersion"
+          },
+          {
+            "$ref": "#/parameters/HeaderLanguage"
+          },
+          {
+            "$ref": "#/parameters/HeaderPlatform"
+          },
+          {
+            "$ref": "#/parameters/HeaderAuth"
+          }
+        
+        ],
+        "responses": {
+          "200": {
+            "description": "User profile in system",
+            "schema": {
+              "$ref": "#/definitions/responsesOk"
+            }
+          },
+          "500": {
+            "description": "Unexpected error.",
+            "schema": {
+              "$ref": "#/definitions/responsesError"
+            }
+          }
+        }
+      }
+    },
+    "/api/game-lang": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "My Game Language",
+        "description": "My Game Language",
+        "operationId": "/game-lang",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/HeaderVersion"
+          },
+          {
+            "$ref": "#/parameters/HeaderLanguage"
+          },
+          {
+            "$ref": "#/parameters/HeaderPlatform"
+          },
+          {
+            "$ref": "#/parameters/HeaderAuth"
+          },
+          {
+            "in": "query",
+            "name": "_id",
+            "type": "ObjectId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "My Game Language",
+            "schema": {
+              "$ref": "#/definitions/responsesOk"
+            }
+          },
+          "500": {
+            "description": "Unexpected error.",
+            "schema": {
+              "$ref": "#/definitions/responsesError"
+            }
+          }
+        }
+      }
+    }
+
+  },
+
+  "definitions": {
+    
+    "user_signup": {
+      "type": "object",
+      "required": [
+        "name",
+        "email",
+        "mobile",
+        "password",
+        "confirm_password"
+        
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "John Doe"
+        },
+        "email": {
+          "type": "string",
+          "example": "abc@example.com"
+        },
+        "mobile": {
+          "type": "string",
+          "example": "9089909090"
+        },
+        "password": {
+          "type": "string",
+          "example": "abc@123"
+        },
+        "confirm_password": {
+          "type": "string",
+          "example": "abce@123"
+        }
+       
+      }
+    },
+
+    "user_profile": {
+      "type": "object",
+      "required": [
+        "_id",
+        "shippingAddress1",
+        "shippingAddress2",
+        "city",
+        "zipCode",
+        "state",
+        "secondaryPhone",
+        "licenseNumber"
+      ],
+      "properties": {
+        "_id": {
+          "type": "string",
+          "example": "5ed660d63bbd282d947af1c6"
+        },
+        "shippingAddress1": {
+          "type": "string",
+          "example": "Avenue street"
+        },
+        "shippingAddress2": {
+          "type": "string",
+          "example": "3 mall"
+        },
+        "state": {
+          "type": "string",
+          "example": "5e15b6f7dbc1a60870ed864e"
+        },
+        "city": {
+          "type": "string",
+          "example": "Florida"
+        },
+        "zipCode": {
+          "type": "string",
+          "example": "123456"
+        },
+        "secondaryPhone": {
+          "type": "string",
+          "example": "(123) 345 7890"
+        },
+        "licenseNumber": {
+          "type": "String",
+          "example": "123Fgj"
+        }
+      }
+    },
+
+    "verify_otp": {
+      "type": "object",
+      "required": [
+        "otp",
+        "resetToken",
+        "email"
+      ],
+      "properties": {
+        "resetToken": {
+          "type": "string",
+          "description": "Auth token",
+          "example": "fdf056adc9846820a9d520"
+        },
+        "otp": {
+          "type": "string",
+          "description": "Recieved on submitted mobile number",
+          "example": "1234"
+        },
+        "email": {
+          "type": "string",
+          "description": "User email",
+          "example": "abc@example.com"
+        }
+      }
+    },
+
+    "add_wallet": {
+      "type": "object",
+      "required": [
+        "balance"
+        
+      ],
+      "properties": {
+        "balance": {
+          "type": "number",
+          "example": "100"
+        }
+       
+      }
+    },
+
+    "delete_notification": {
+      "type": "object",
+      "required": [
+        "_id"
+        
+      ],
+      "properties": {
+        "_id": {
+          "type": "ObjectId",
+          "example": "65abafd9ccab6f9f87ada6b0"
+        }
+       
+      }
+    },
+
+    "update_game": {
+      "type": "object",
+      "required": [
+        "_id",
+        "type"
+      ],
+      "properties": {
+        "_id": {
+          "type": "ObjectId",
+          "example": "65abafd9ccab6f9f87ada6b0"
+        },
+        "type": {
+          "type": "string",
+          "example": "HINDI"
+        }
+       
+      }
+    },
+
+
+    "add_game": {
+      "type": "object",
+      "required": [
+        "gameName",
+        "isCompleted",
+        "amount",
+        "entrance"
+        
+      ],
+      "properties": {
+        "gameName": {
+          "type": "string",
+          "example": "Game Name"
+        },
+        "isCompleted": {
+          "type": "boolean",
+          "example": true
+        },
+        "amount": {
+          "type": "number",
+          "example": 500
+        },
+        "schedule": {
+          "type": "number",
+          "example": 1636690180000 
+        },
+        "entrance": {
+          "type": "number",
+          "example": 10
+        }
+       
+      }
+    },
+
+    "resend_otp": {
+      "type": "object",
+      "required": [
+        "resetToken",
+        "email"
+      ],
+      "properties": {
+        "resetToken": {
+          "type": "string",
+          "description": "Reset token",
+          "example": "ttradc9846820a9d520"
+        },
+        "mobile": {
+          "type": "string",
+          "description": "User email address",
+          "example": "abc@example.com"
+        }
+      }
+    },
+
+    "reset_password": {
+      "type": "object",
+      "required": [
+        "password",
+        "cnfpassword"
+      ],
+      "properties": {
+        "password": {
+          "type": "string",
+          "format": "password",
+          "example": "User@12345"
+        },
+        "cnfpassword": {
+          "type": "string",
+          "format": "password",
+          "example": "User@12345"
+        }
+      }
+    },
+
+    "forgot_password": {
+      "type": "object",
+      "required": [
+        "email"
+      ],
+      "properties": {
+        "email": {
+          "type": "string",
+          "example": "abc@example.com"
+        }
+      }
+    },
+
+    "changepassword": {
+      "type": "object",
+      "required": [
+        "current_password",
+        "new_password"
+      ],
+      "properties": {
+        "current_password": {
+          "type": "string",
+          "description": "Current Password",
+          "example": "123456asdf"
+        },
+        "new_password": {
+          "type": "string",
+          "description": "New Password",
+          "example": "123456assds"
+        }
+      }
+    },
+
+    "change_password": {
+      "type": "object",
+      "required": [
+        "currentPassword",
+        "newPassword",
+        "cnfNewPassword"
+      ],
+      "properties": {
+        "currentPassword": {
+          "type": "string",
+          "description": "Current Password",
+          "format": "password",
+          "example": "User@1234"
+        },
+        "newPassword": {
+          "type": "string",
+          "description": "New Password",
+          "format": "password",
+          "example": "User@12345"
+        },
+        "cnfNewPassword": {
+          "type": "string",
+          "description": "Confirm new Password",
+          "format": "password",
+          "example": "User@12345"
+        }
+      }
+    },
+
+    "app-setting": {
+      "type": "object",
+      "required": [
+        "_videoSpeed",
+        "_videoQuality"
+      ],
+      "properties": {
+        "_videoSpeed": {
+          "example": 1
+        },
+        "_videoQuality": {
+          "example": 240
+        }
+      }
+    },
+
+    "contact-us": {
+      "type": "object",
+      "required": [
+        "_phone",
+        "_email",
+        "msg"
+      ],
+      "properties": {
+        "_phone": {
+          "example": "9874664642"
+        },
+        "_email": {
+          "example": "admin@yopmail.com"
+        },
+        "msg": {
+          "example": "I am not able to change my video quality."
+        }
+      }
+    },
+
+    "resendOtp": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "example": "5ced3056adc9846820a9d520",
+          "description": "User id recieved in previous step"
+        }
+      }
+    },
+
+    "login": {
+      "type": "object",
+      "required": [
+        "email",
+        "password"
+      ],
+      "properties": {
+        "email": {
+          "type": "string",
+          "example": "abc@example.com"
+        },
+        "password": {
+          "type": "string",
+          "example": "User@1234"
+        }
+      }
+    },
+
+
+    "departmentlist": {
+      "type": "object",
+      "required": [
+        
+        "classId"
+      ],
+      "properties": {
+       
+        "classId": {
+          "type": "string",
+          "example": "asdfe12dfdf34dgd5"
+        }
+       
+      }
+    },
+    
+    "subjectlist": {
+      "type": "object",
+      "required": [
+        
+        "departmentId"
+      ],
+      "properties": {
+       
+        "departmentId": {
+          "type": "string",
+          "example": "asdfe12dfdf34dgd5"
+        }
+       
+      }
+    },
+     
+    "videolist": {
+      "type": "object",
+      "required": [
+        
+        "subjectId"
+      ],
+      "properties": {
+       
+        "subjectId": {
+          "type": "string",
+          "example": "asdfe12dfdf34dgd5"
+        }
+       
+      }
+    },
+
+    "videoLike": {
+      "type": "object",
+      "required": [
+        "videoId"
+      ],
+      "properties": {
+        "videoId": {
+          "type": "string",
+          "example": "640cc63ad3bf8e11c0ba76fc"
+        }
+      }
+    },
+
+    "videoComment": {
+      "type": "object",
+      "required": [
+        "videoId",
+        "comment"
+      ],
+      "properties": {
+        "videoId": {
+          "type": "string",
+          "example": "640cc63ad3bf8e11c0ba76fc"
+        },
+        "comment": {
+          "type": "string",
+          "example": "kdjfklasjfkljskf"
+        }
+      }
+    },
+    
+    "testseries": {
+      "type": "object",
+      "required": [
+        "classId"
+      ],
+      "properties": {
+        "classId": {
+          "type": "string",
+          "example": "640cc63ad3bf8e11c0ba76fc"
+        }
+      }
+    },
+
+    "questions": {
+      "type": "object",
+      "required": [
+        "seriesId"
+      ],
+      "properties": {
+        "seriesId": {
+          "type": "string",
+          "example": "640cc63ad3bf8e11c0ba76fc"
+        }
+      }
+    },
+
+    "order": {
+      "type": "object",
+      "required": [
+        "productId",
+        "type",
+        "amount"
+      ],
+      "properties": {
+        "productId": {
+          "type": "string",
+          "example": "640cc63ad3bf8e11c0ba76fc"
+        },
+        "type":{
+          "type":"string",
+          "example": "department"
+
+        },
+        "amount":{
+          "type":"number",
+          "example":789
+        }
+      }
+    },
+
+    "allSubjects": {
+      "type": "object",
+      "required": [
+        "courseId"
+      ],
+      "properties": {
+        "courseId": {
+          "type": "string",
+          "example": "64074fc4f025a416ac8a1f3f"
+        }
+      }
+    },
+
+    "responsesOk": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "data": {
+          "type": "object"
+        }
+      }
+    },
+
+    "responsesError": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "error": {
+          "type": "object"
+        }
+      }
+    },
+
+    "loginResponseOk": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "example": "VERIFY_OTP",
+          "description": "If account not verified then rediect user to otp screen and enter OTP send to his phone number"
+        },
+        "code": {
+          "type": "string"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "data": {
+          "type": "object"
+        }
+      }
+    }
+  },
+
+  "parameters": {
+    "HeaderVersion": {
+      "name": "X-QUIZ-Version",
+      "in": "header",
+      "description": "X-QUIZ-Version",
+      "required": true,
+      "type": "string",
+      "default": "1.0.0"
+    },
+    "HeaderLanguage": {
+      "name": "Accept-Language",
+      "in": "header",
+      "description": "Accept-Language",
+      "required": true,
+      "type": "string",
+      "default": "en"
+    },
+    "HeaderPlatform": {
+      "name": "X-QUIZ-Platform",
+      "in": "header",
+      "description": "android or ios or web",
+      "required": true,
+      "type": "string",
+      "default": "android"
+    },
+    "HeaderAuth": {
+      "name": "Authorization",
+      "in": "header",
+      "description": "Authorization",
+      "required": false,
+      "type": "string"
+    },
+    "HeaderOptionalAuth": {
+      "name": "Authorization",
+      "in": "header",
+      "description": "Authorization",
+      "type": "string"
+    },
+    "HeaderCategory": {
+      "name": "category",
+      "in": "header",
+      "description": "category",
+      "required": true,
+      "type": "string"
+    }
+  }
+}
